@@ -7,7 +7,7 @@
  * Author URI: http://webdevstudios.com
  * Version: 1.0.0
  * License: GPLv2
- * Text Domain: wds-custom-css
+ * Text Domain: wds-customizer-css
  * Domain Path: languages
  */
 
@@ -32,11 +32,11 @@ if ( ! class_exists( 'WDS_Custom_CSS' ) ) {
 			$this->directory_url  = plugins_url( dirname( $this->basename ) );
 
 			// Load Textdomain
-			load_plugin_textdomain( 'wds-custom-css', false, dirname( $this->basename ) . '/languages' );
+			load_plugin_textdomain( 'wds-customizer-css', false, dirname( $this->basename ) . '/languages' );
 		}
 
 		public function include_scripts() {
-			wp_enqueue_script( 'wds-custom-css-js', plugins_url( '/js/wds-custom-css.js',  __FILE__ ), array( 'jquery', 'customize-preview' ), '1.0.0', true );
+			wp_enqueue_script( 'wds-customizer-css-js', plugins_url( '/js/wds-customizer-css.js',  __FILE__ ), array( 'jquery', 'customize-preview' ), '1.0.0', true );
 		}
 
 		/**
@@ -58,12 +58,12 @@ if ( ! class_exists( 'WDS_Custom_CSS' ) ) {
 				)
 			);
 			$wp_customize->add_section( 'wds_custom_css_section' , array(
-				'title'      => __( 'Custom CSS', 'wds-custom-css' ),
+				'title'      => __( 'Custom CSS', 'wds-customizer-css' ),
 				'priority'   => 30,
 			) );
 
 			$wp_customize->add_control( new WDS_Custom_CSS_Textarea_Control( $wp_customize, 'wds_custom_css', array(
-				'label'      => __( 'Custom CSS', 'wds-custom-css' ),
+				'label'      => __( 'Custom CSS', 'wds-customizer-css' ),
 				'section'    => 'wds_custom_css_section',
 				'settings'   => 'wds_custom_css',
 				// 'type'       => 'textarea',
@@ -73,14 +73,14 @@ if ( ! class_exists( 'WDS_Custom_CSS' ) ) {
 
 		public function add_styles() {
 			?>
-			<!-- Begin Custom CSS --><style type="text/css" id="wds-custom-css">
+			<!-- Begin Custom CSS --><style type="text/css" id="wds-customizer-css">
 			<?php echo strip_tags( get_theme_mod( 'wds_custom_css', '' ) ); ?>
 			</style><!-- End Custom CSS -->
 			<?php
 		}
 
 		public function add_menu_page() {
-			add_submenu_page( 'themes.php', __( 'Custom CSS', 'wds-custom-css' ), __( 'Custom CSS', 'wds-custom-css' ), 'edit_theme_options', 'wds-custom-css', array( $this, 'custom_css_page' ) );
+			add_submenu_page( 'themes.php', __( 'Custom CSS', 'wds-customizer-css' ), __( 'Custom CSS', 'wds-customizer-css' ), 'edit_theme_options', 'wds-customizer-css', array( $this, 'custom_css_page' ) );
 		}
 
 		public function custom_css_page() {
@@ -94,17 +94,17 @@ if ( ! class_exists( 'WDS_Custom_CSS' ) ) {
 
 			$wds_custom_css = get_theme_mod( 'wds_custom_css' );
 
-			echo "<h2>" .  __( 'WDS Custom CSS', 'wds-custom-css' ) . "</h2>";
-			echo "<a href=" . admin_url( 'customizer.php' ) . ">" . __( 'Want to see a real-time preview? Edit in the Customizer.', 'wds-custom-css' ) . "</a>";
+			echo "<h2>" .  __( 'WDS Custom CSS', 'wds-customizer-css' ) . "</h2>";
+			echo "<a href=" . admin_url( 'customizer.php' ) . ">" . __( 'Want to see a real-time preview? Edit in the Customizer.', 'wds-customizer-css' ) . "</a>";
 			echo "<form method='POST'>";
 
 			wp_nonce_field( 'wds_custom_css_nonce' );
 
 			echo "<table class='form-table'>\n";
-			echo "<tr><th>" . __( 'Custom CSS', 'wds-custom-css' ) . "</th><td><textarea  rows='25' cols='100' name='wds_custom_css'>{$wds_custom_css}</textarea></td></tr>\n";
+			echo "<tr><th>" . __( 'Custom CSS', 'wds-customizer-css' ) . "</th><td><textarea  rows='25' cols='100' name='wds_custom_css'>{$wds_custom_css}</textarea></td></tr>\n";
 			echo "</td></tr>\n";
 			echo "</table>";
-			echo "<p><input type='submit' class='button-primary' value='" .__( 'Save', 'wds-custom-css' ). "' /></p></form>";
+			echo "<p><input type='submit' class='button-primary' value='" .__( 'Save', 'wds-customizer-css' ). "' /></p></form>";
 		}
 
 	}
