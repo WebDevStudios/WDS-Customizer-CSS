@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-if ( ! class_exists( 'WDS_Custom_CSS' ) ) {
+if ( ! class_exists( 'WDS_Customizer_CSS' ) ) {
 
-	class WDS_Custom_CSS {
+	class WDS_Customizer_CSS {
 
 		/**
 		 * Construct function to get things started.
@@ -36,7 +36,7 @@ if ( ! class_exists( 'WDS_Custom_CSS' ) ) {
 		}
 
 		public function include_scripts() {
-			wp_enqueue_script( 'wds-customizer-css-js', plugins_url( '/js/wds-customizer-css.js',  __FILE__ ), array( 'jquery', 'customize-preview' ), '1.0.0', true );
+			wp_enqueue_script( 'wds-customizer-css-js', plugins_url( 'includes/js/wds-customizer-css.js',  __FILE__ ), array( 'jquery', 'customize-preview' ), '1.0.0', true );
 		}
 
 		/**
@@ -53,7 +53,6 @@ if ( ! class_exists( 'WDS_Custom_CSS' ) ) {
 			require_once $this->directory_path . '/includes/custom-control.php';
 
 			$wp_customize->add_setting( 'wds_custom_css', array(
-				'default' => '',
 				'transport' => 'postMessage',
 				)
 			);
@@ -66,7 +65,6 @@ if ( ! class_exists( 'WDS_Custom_CSS' ) ) {
 				'label'      => __( 'Custom CSS', 'wds-customizer-css' ),
 				'section'    => 'wds_custom_css_section',
 				'settings'   => 'wds_custom_css',
-				// 'type'       => 'textarea',
 			) ) );
 
 		}
@@ -109,6 +107,6 @@ if ( ! class_exists( 'WDS_Custom_CSS' ) ) {
 
 	}
 
-	$_GLOBALS['WDS_Custom_CSS'] = new WDS_Custom_CSS;
-	$_GLOBALS['WDS_Custom_CSS']->do_hooks();
+	$_GLOBALS['WDS_Customizer_CSS'] = new WDS_Customizer_CSS;
+	$_GLOBALS['WDS_Customizer_CSS']->do_hooks();
 }
