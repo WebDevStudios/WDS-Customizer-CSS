@@ -20,9 +20,9 @@
 
 Easily add custom styles to your WordPress site. Adds a control to the Customizer, as well as a Theme Options page to edit custom CSS that gets added to your site, without the need for a child theme or editing theme files.
 
-![](screenshot-1.png?raw=true)
+![](screenshot-1.png?raw=true "Customizer Preview")
 
-![](screenshot-1.png?raw=true)
+![](screenshot-2.png?raw=true "Theme Options Page")
 
 ## Installation
 
