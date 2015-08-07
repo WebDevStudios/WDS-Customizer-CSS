@@ -86,7 +86,7 @@ if ( ! class_exists( 'WDS_Customizer_CSS' ) ) {
 				check_admin_referer( 'wds_custom_css_nonce' );
 
 				if( isset ( $_POST[ 'wds_custom_css' ] ) ) {
-					set_theme_mod( 'wds_custom_css', strip_tags( $_POST[ 'wds_custom_css' ] ) );
+					set_theme_mod( 'wds_custom_css', strip_tags( stripslashes( $_POST[ 'wds_custom_css' ] ) ) );
 				}
 			}
 
