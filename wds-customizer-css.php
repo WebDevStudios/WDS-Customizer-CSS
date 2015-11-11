@@ -58,7 +58,7 @@ if ( ! class_exists( 'WDS_Customizer_CSS' ) ) {
 			);
 			$wp_customize->add_section( 'wds_custom_css_section' , array(
 				'title'      => __( 'Custom CSS', 'wds-customizer-css' ),
-				'priority'   => 30,
+				'priority'   => apply_filters( 'wds_custom_css_section_priority', 30 ),
 			) );
 
 			$wp_customize->add_control( new WDS_Custom_CSS_Textarea_Control( $wp_customize, 'wds_custom_css', array(
