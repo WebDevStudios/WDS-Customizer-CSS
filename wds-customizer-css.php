@@ -93,7 +93,7 @@ if ( ! class_exists( 'WDS_Customizer_CSS' ) ) {
 			$wds_custom_css = get_theme_mod( 'wds_custom_css' );
 
 			echo "<h2>" .  __( 'WDS Custom CSS', 'wds-customizer-css' ) . "</h2>";
-			echo "<a href=" . admin_url( 'customizer.php' ) . ">" . __( 'Want to see a real-time preview? Edit in the Customizer.', 'wds-customizer-css' ) . "</a>";
+			echo "<a href=" . admin_url( 'customize.php' ) . ">" . __( 'Want to see a real-time preview? Edit in the Customizer.', 'wds-customizer-css' ) . "</a>";
 			echo "<form method='POST'>";
 
 			wp_nonce_field( 'wds_custom_css_nonce' );
